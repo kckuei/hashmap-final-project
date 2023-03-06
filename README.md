@@ -45,7 +45,7 @@
 * One or more elements can occupy the same hash bucket/slot by storing them in a linked list.
 * When we hash a key to an index, we must search the linked-list for our value to decide whether to overwite an existing node, or insert a new node. If we hash to an empty linked-list, we can insert immediately.
 * When using seperate chaining, a table's load factor *can* exceed 1. This is because for a given slot, a linked list can hold any number of key/value pairs limited to memory.
-* For our SC implementation, we resize whenever the load factor  `λ >= 1.0`. 
+* For our SC implementation, we resize whenever the load factor  `λ ≥ 1.0`. 
 
 ## Open Addressing Concepts
 ![HashMap-OA-Linear](./imgs/hashmaps-oa-linear.svg)
@@ -60,22 +60,22 @@
 * In general, linear probing is more susceptible to clustering. Quadratic probing is somewhere between linear and double hashing in terms of performance.
 * For our OA implementation, we use quadratic probing. An example sequence using quadratic probing is as follows:
 	* $H+1^{2},H+2^{2},H+3^{2},H+4^{2},...,H+k^{2}$.
-* To make OA work, we rely on using 'tombstones' markers. This ensures that if we remove an element $i$ that resides on a probing path for another element $j$ afther down the table, that we'll still be able to find that element $j$ later by leaving a placeholder. 
+* To make OA work, we rely on using 'tombstones' markers. This ensures that if we remove an element $i$ that resides on a probing path for another element $j$ farther down the table, that we'll still be able to find that element $j$ later by leaving a placeholder. 
 	* Basically, tombstones give us a way to preserve the cumulative state at which time a key was inserted with probing. So long as we remember that state, we maintain our ability to retrieve our elements even after removals.
 * A distinction compared with SC, is that two search loops are generally needed to decide whether to insert or update a value. The first search checks for the presence of the key, and if found, udpates the value. If the key is not found, then a second search is performed to find the first available slot to insert.
 	* In general, the first search ignores tombstones, and terminates when an empty slot is found.
 	* The second search terminates when either a tombstone or empty slot is found. 
-* When using open addressing, a table’s load factor *cannot* exceed 1 because each slot can only hold one hash entry, unlike in SC which uses linked-lists.
+* When using open addressing, a table’s load factor *cannot* exceed 1 because each slot can only hold one hash entry, unlike in SC which uses linked-lists, which allows us to stack values on the same lot.
 * However, there are only `m/2` distinct probes for a given element, requiring other techniques to guarantee that insertions will succeed when the load factor exceeds 1/2.
 * Complexity
 	* In general, the probability `p` that the first probe is successful is `p=(m-n)/m`
 	* There are `m` total slots and `n` filled slots, so `m − n` open spots.
-	* The probability of success that the c-th probe is successful is `(m−n)/(m−c) >= (m−n)/m = p`. Hence it is at least `p`.
+	* The probability of success that the c-th probe is successful is `(m−n)/(m−c) ≥ (m−n)/m = p`. Hence it is at least `p`.
 	* The expected number of probes until success is generally: `1/p = 1/((m−n)/m) = 1/(1−n/m) = 1/(1−λ)`
 	* In other words, the expected number of probes for any given operation is `O(1/(1−λ))`.
 	* This means if we limit the load factor to a constant and reasonably small number, our operations will be O(1) on average. 
 	* For example, if we have `λ = 0.75`, then we would expect 4 probes, on average. For `λ = 0.9`, we would expect 10 probes.
-* For our OA implementation, we resize whenever the load  `λ >= 0.5`.
+* For our OA implementation, we resize whenever the load  `λ ≥ 0.5`.
 
 ## Closing
 * Hash maps are up there with AVL's in terms of coolness! 
