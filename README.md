@@ -5,7 +5,7 @@
 	1) Seperate Chaining (SC); and 
 	2) Open Addressing (OA) with Quadratic Probing.
 * Why use hash tables? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all in constant time.
-* `HashMap` classes are implemented for OA and SC using `DynamicArray` and singly `LinkedList` (SLL) classes that provided in `a6_include.py`. These classes represent reduced data structures that were implemented earlier in the course.
+* `HashMap` classes are implemented for SC and OA using the `DynamicArray` and singly `LinkedList` (SLL) classes provided in `a6_include.py`. These classes represent reduced data structures implemented earlier in the course.
 * `HashMap` methods implemented: 
 	* SC and OA:
 	    * `put()` - updates an existing key or inserts a new key/value pair if the key is not found, resizing to maintain max allowable load factor constraints.
