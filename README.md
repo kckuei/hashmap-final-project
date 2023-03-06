@@ -40,7 +40,7 @@
 * We prefer prime numbers for the hash table sizes. This is becuase prime numbers are more likely to have a uniform distribution of remainders than a composite number. As a result, a prime number of buckets is less likely to have collisions than a composite number of buckets.
 
 ## Seperate Chaining Concepts
-![HashMap-SC](./hashmaps-sc.svg)
+![HashMap-SC](./imgs/hashmaps-sc.svg)
 * Uses linked-lists for collision resolution.
 * One or more elements can occupy the same hash bucket/slot by storing them in a linked list.
 * When we hash a key to an index, we must search the linked-list for our value to decide whether to overwite an existing node, or insert a new node. If we hash to an empty linked-list, we can insert immediately.
@@ -48,8 +48,8 @@
 * For our SC implementation, we resize whenever the load factor  `λ >= 1.0`. 
 
 ## Open Addressing Concepts
-![HashMap-OA-Linear](./hashmaps-oa-linear.svg)
-![HashMap-OA-Quadratic](./hashmaps-oa-quad.svg)
+![HashMap-OA-Linear](./imgs/hashmaps-oa-linear.svg)
+![HashMap-OA-Quadratic](./imgs/hashmaps-oa-quad.svg)
 * Uses open addressing for collision resolution.
 * The idea is that if we stumble upon an occupied hash entry, we can probe/skip ahead to the next available slot for insertion of our value.
 * We can use one of several open adressing techniques for resolution, including linear probing, [quadratic probing](https://en.wikipedia.org/wiki/Quadratic_probing), or double hashing:
