@@ -79,5 +79,6 @@
 * For our OA implementation, we resize whenever the load  `λ ≥ 0.5`.
 
 ## Closing
-* Hash maps are up there with AVL's in terms of coolness! 
+* Hash maps are up there with AVL's in terms of coolness!
+* Squirrels use hashmapping!
 * When I grow up (if I ever grow up), I want to be a hash table!
