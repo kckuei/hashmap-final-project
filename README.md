@@ -1,12 +1,11 @@
 # Data Structures Final Project: Hash Table/Map
 
-* Why use hash tables? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all in constant time.
-
 ## Overview
 * Data Structures final project written in `python` that implements a `HashMap` class using two different approaches for collision resolution: 
 	1) Seperate Chaining (SC); and 
 	2) Open Addressing (OA) with Quadratic Probing.
-* The OA and SC `HashMap` classes are implemented with `DynamicArray` and singly `LinkedList` (SLL) classes that are provided in `a6_include.py`. These classes represent reduced data structures that were implemented earlier in the course.
+* Why use hash tables? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all in constant time.
+* `HashMap` classes are implemented for OA and SC using `DynamicArray` and singly `LinkedList` (SLL) classes that provided in `a6_include.py`. These classes represent reduced data structures that were implemented earlier in the course.
 * `HashMap` methods implemented: 
 	* SC and OA:
 	    * `put()` - updates an existing key or inserts a new key/value pair if the key is not found, resizing to maintain max allowable load factor constraints.
