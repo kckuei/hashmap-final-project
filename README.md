@@ -1,5 +1,7 @@
 # Data Structures Final Project: Hash Table/Map
 
+* Why use hash tables? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all in constant time.
+
 ## Overview
 * Data Structures final project written in `python` that implements a `HashMap` class using two different approaches for collision resolution: 
 	1) Seperate Chaining (SC); and 
