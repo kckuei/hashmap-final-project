@@ -7,15 +7,15 @@
 * The OA and SC `HashMap` classes are implemented with `DynamicArray` and singly `LinkedList` (SLL) classes that are provided in `a6_include.py`. These classes represent reduced data structures that were implemented earlier in the course.
 * `HashMap` methods implemented: 
 	* SC and OA:
-	    * `put()` - for updating existing keys or inserting new key/value pairs, and resizing to satisfy allowable load factors.
+	    * `put()` - updates an existing key or inserts a new key/value pair if the key is not found, resizing to maintain max allowable load factor constraints.
 	    * `empty_buckets()` - returns the number of empty buckets.
 	    * `table_load()` - returns the load factor.
 	    * `clear()` - clears the hash table.
-	    * `resize_table()` - resizes the hash table to a capacity that is prime numbered, copies over key/value pairs and rehashes the links.
+	    * `resize_table()` - resizes the hash table to a capacity that is prime numbered, copies over key/value pairs, and rehashes the links.
 	    * `get()` - returns the value associated with a key.
 	    * `contains_key()` - checks if a key is present.
 	    * `remove()` - removes a key/value pair.
-	    * `get_keys_and_values()` - returns an array of key/value tuples
+	    * `get_keys_and_values()` - returns an array of key/value tuples.
 	* SC only
 	    * `find_mode()` - returns the mode of an array.
 	* OA only
@@ -23,8 +23,8 @@
 
 ## Hash Table Concepts
 * Hashmaps can be used to implement the dictionary ADT with key/value pairs.
-* Think of hashmaps as basically a table of buckets or slots to hold values.
-* The principle mechanics to be understood involve hashing for insertion indices, and collision resolution.
+* Think of hashmaps as basically a table of buckets or slots to hold values. 
+* The principle mechanics to be understood are hashing for the insertion index, and resolution of colliding indices for different key/value pairs.
 * To get the insertion index/address for a value, we hash the key (string) as follows:
 	* `index = hash_func(key) % m`, where `m` is the capacity of the table.
 	* Note the mod is to wrap the hash result such that `index <= m`. 
