@@ -1,39 +1,52 @@
 # Data Structures Final Project: Hash Table/Map
 
 ## Motivation
-* Why use hash tables? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all in constant time.
+* Why use [hash tables](https://en.wikipedia.org/wiki/Hash_table)? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all on average, with constant time.
 
-## Overview
-* Data Structures final project written in `python` that implements a `HashMap` class using two different approaches for collision resolution: 
+
+**Hash table time complexity in big o notation**
+| Algorithm  | Average | Worse Case |
+| ------------- | ------------- | ------------- |
+| Algorithm  | Θ(n)  | O(n)  |
+| Space      | Θ(1)  | O(n)  |
+| Search     | Θ(1)  | O(n)  |
+| Insert     | Θ(1)  | O(n)  |
+| Delete     | Θ(1)  | O(n)  |
+
+
+## Project Overview
+* Data structures final project written in `python` which implements a `HashMap` class using two different approaches for collision resolution: 
 	1) Seperate Chaining (SC); and 
 	2) Open Addressing (OA) with Quadratic Probing.
 * `HashMap` classes are implemented for SC and OA using the `DynamicArray` and singly `LinkedList` (SLL) classes provided in `a6_include.py`. These classes represent reduced data structures implemented earlier in the course.
 * `HashMap` methods implemented: 
-	* SC and OA:
-	    * `put()` - updates an existing key or inserts a new key/value pair if the key is not found, resizing to maintain max allowable load factor constraints.
-	    * `empty_buckets()` - returns the number of empty buckets.
-	    * `table_load()` - returns the load factor.
-	    * `clear()` - clears the hash table.
-	    * `resize_table()` - resizes the hash table to a capacity that is prime numbered, copies over key/value pairs, and rehashes the links.
-	    * `get()` - returns the value associated with a key.
-	    * `contains_key()` - checks if a key is present.
-	    * `remove()` - removes a key/value pair.
-	    * `get_keys_and_values()` - returns an array of key/value tuples.
-	* SC only
-	    * `find_mode()` - returns the mode of an array.
-	* OA only
-	    * `__iter__()`, `__next__()`  - iterator implementation.
+    * `put()` - updates an existing key or inserts a new key/value pair if the key is not found, resizing to maintain max allowable load factor constraints.
+    * `empty_buckets()` - returns the number of empty buckets.
+    * `table_load()` - returns the load factor.
+    * `clear()` - clears the hash table.
+    * `resize_table()` - resizes the hash table to a capacity that is prime numbered, copies over key/value pairs, and rehashes the links.
+    * `get()` - returns the value associated with a key.
+    * `contains_key()` - checks if a key is present.
+    * `remove()` - removes a key/value pair.
+    * `get_keys_and_values()` - returns an array of key/value tuples.
+    * `find_mode()` - returns the mode of an array (SC only).
+    * `__iter__()`, `__next__()`  - iterator implementation (OA only).
 
 ## Hash Table Concepts
 * Hashmaps can be used to implement the dictionary ADT with key/value pairs.
 * Think of hashmaps as basically a table of buckets or slots to hold values. 
 * The principle mechanics to be understood are hashing for the insertion index, and resolution of colliding indices for different key/value pairs.
-* To get the insertion index/address for a value, we hash the key (string) as follows:
+* To get the insertion index/address for a value, we hash the key (e.g. string, struct, double, etc.) to obtain an integer value:
 	* `index = hash_func(key) % m`, where `m` is the capacity of the table.
 	* Note the mod is to wrap the hash result such that `index <= m`. 
-* A perfect hash function is one that results in no collisions;  in other words, every input gets a unique output.
-* A minimally perfect hash function is one that results in no collisions for a table size that equals exactly the number of elements.
-* A hash function that generates the same output for two different inputs results in a collision. 
+* Hash functions
+	* The desirable properties of a hash function are:
+		* Determinism - a given input always maps to the same hash value.
+		* Uniformity - the inputs should be mapped as evenly as possible over the output range (prime number sizes tend to yield more uniform mappings).
+		* Speed - the function should have a low computational burden.
+	* A perfect hash function is one that results in no collisions;  in other words, every input gets a unique output.
+	* A minimally perfect hash function is one that results in no collisions for a table size that equals exactly the number of elements.
+	* A hash function that generates the same output for two different inputs results in a collision. 
 * Two collision resolution approaches involve seperate chaining, and open addressing. 
 * An important metric for hash table performance, tuning, and resizing determination is the load factor, defined as `λ=n/m`.
 	* `λ` = load factor
