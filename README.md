@@ -1,7 +1,7 @@
 # Data Structures Final Project: Hash Table/Map
 
 ## Motivation
-* Why use [hash tables](https://en.wikipedia.org/wiki/Hash_table)? The most valuable aspect of a hash table over other abstract data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all on average, with constant time.
+* Why use [hash tables](https://en.wikipedia.org/wiki/Hash_table)? The most valuable aspect of a hash table over other data structures is its speed to perform insertion, deletion, and search operations. Hash tables can do them all on average in constant time.
 
 
 **Hash table time complexity in big o notation**
@@ -39,14 +39,13 @@
 * To get the insertion index/address for a value, we hash the key (e.g. string, struct, double, etc.) to obtain an integer value:
 	* `index = hash_func(key) % m`, where `m` is the capacity of the table.
 	* Note the mod is to wrap the hash result such that `index <= m`. 
-* Hash functions
-	* The desirable properties of a hash function are:
-		* Determinism - a given input always maps to the same hash value.
-		* Uniformity - the inputs should be mapped as evenly as possible over the output range (prime number sizes tend to yield more uniform mappings).
-		* Speed - the function should have a low computational burden.
-	* A perfect hash function is one that results in no collisions;  in other words, every input gets a unique output.
-	* A minimally perfect hash function is one that results in no collisions for a table size that equals exactly the number of elements.
-	* A hash function that generates the same output for two different inputs results in a collision. 
+* The desirable properties of a hash function are:
+	* Determinism - a given input always maps to the same hash value.
+	* Uniformity - the inputs should be mapped as evenly as possible over the output range (prime number sizes tend to yield more uniform mappings).
+	* Speed - the function should have a low computational burden.
+* A perfect hash function is one that results in no collisions;  in other words, every input gets a unique output.
+* A minimally perfect hash function is one that results in no collisions for a table size that equals exactly the number of elements.
+* A hash function that generates the same output for two different inputs results in a collision. 
 * Two collision resolution approaches involve seperate chaining, and open addressing. 
 * An important metric for hash table performance, tuning, and resizing determination is the load factor, defined as `λ=n/m`.
 	* `λ` = load factor
