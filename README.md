@@ -7,8 +7,7 @@
 **Hash table time complexity in big o notation**
 | Algorithm  | Average | Worse Case |
 | ------------- | ------------- | ------------- |
-| Algorithm  | Θ(n)  | O(n)  |
-| Space      | Θ(1)  | O(n)  |
+| Space      | Θ(n)  | O(n)  |
 | Search     | Θ(1)  | O(n)  |
 | Insert     | Θ(1)  | O(n)  |
 | Delete     | Θ(1)  | O(n)  |
